@@ -1,0 +1,16 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  socket.on("welcome", (msg) => {
+      console.log("Serveur:", msg);
+  });
+
+  // Exemple d’envoi vers serveur
+  socket.emit("messageClient", "Bonjour serveur !");
+  
+  // Réception broadcast
+  socket.on("broadcast", msg => {
+      console.log("Broadcast:", msg);
+  });
+</script>

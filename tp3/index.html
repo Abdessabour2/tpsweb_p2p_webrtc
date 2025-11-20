@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>WebRTC Multiparty P2P - Choix Signalisation</title>
+<style>
+  video { width: 200px; margin: 5px; border: 1px solid #333; }
+  #videos { display: flex; flex-wrap: wrap; }
+  #chat { margin-top: 10px; }
+  textarea { width: 300px; height: 80px; }
+</style>
+</head>
+<body>
+<h1>WebRTC Multiparty P2P</h1>
+
+<label for="techSelect">Choisir technologie de signalisation:</label>
+<select id="techSelect">
+  <option value="socketio">Socket.io</option>
+  <option value="ws">WebSocket natif</option>
+  <option value="xhr">XHR (polling)</option>
+</select>
+<button id="joinBtn">Rejoindre Channel</button>
+
+<div id="videos">
+  <video id="localVideo" autoplay muted></video>
+</div>
+
+<div id="chat">
+  <textarea id="dataChannelSend" placeholder="Tapez un message..."></textarea><br>
+  <button id="sendButton">Envoyer</button>
+  <div id="chatMessages"></div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/multipartyGenericClient.js"></script>
+</body>
+</html>
